@@ -1,0 +1,22 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "1. C - Create \r 2. R - Read \r 3. U - Update \r 4. D - Delete",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carol21d/ToDoList.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Carol21d/ToDoList/issues"
+  },
+  "homepage": "https://github.com/Carol21d/ToDoList#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.0-alpha1"
+  }
+}
