@@ -14,24 +14,37 @@ function showMessage(message, className) {
 
 document.querySelector("#addItem").value = " ";
 
-document.querySelector("#form-ToDo").addEventListener("submit", (e) =>{
-        e.preventDefault();
+document.querySelector("#form-ToDo").addEventListener("submit", (e) => {
+  e.preventDefault();
 
-        const addItem = document.querySelector("#addItem").value;
+  const addItem = document.querySelector("#addItem").value;
 
-        if (addItem == " "){
-            showMessage("Empty Field, Please fill the Field", "danger");
-        }
-    });
+  if (addItem == " ") {
+    showMessage("Empty Field, Please fill the Field", "danger");
+  } else {
+    if (selecRow == null) {
+      const listItems = document.querySelector("#items");
+      const rowItems = document.createElement("tr");
 
+      rowItems.innerHTML = `
+                 <td>${addItem}</td>
+                
+                 <td>
+                 <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                 <a href="#" class="btn btn-info btn-sm edit">Edit</a>
+                `;
+                listItems.appendChild(rowItems);
+                selecRow = null;
+                showMessage("added item", "success")
 
-
-
-
+    
+    }
+  }
+});
 
 document.querySelector("#items").addEventListener("click", (e) => {
   target = e.target;
-  if(target.classList.contains("delete")){
+  if (target.classList.contains("delete")) {
     target.parentElement.parentElement.remove();
     showMessage("Item Deleted of the ToDo List", "danger");
   }
