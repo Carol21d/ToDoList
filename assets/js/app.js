@@ -14,11 +14,15 @@ function showMessage(message, className) {
 
 document.querySelector("#addItem").value = " ";
 
-document.querySelector("#form-ToDo").addEventListener("submit" , (e) =>{
-  e.preventDefault();
+document.querySelector("#form-ToDo").addEventListener("submit", (e) =>{
+        e.preventDefault();
 
-  const addItem = document.querySelector("#addItem").value;
-});
+        const addItem = document.querySelector("#addItem").value;
+
+        if (addItem == " "){
+            showMessage("Empty Field, Please fill the Field", "danger");
+        }
+    });
 
 
 
