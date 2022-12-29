@@ -12,6 +12,19 @@ function showMessage(message, className) {
   setTimeout(() => document.querySelector(".alert").remove(), 3000);
 }
 
+document.querySelector("#addItem").value = " ";
+
+document.querySelector("#form-ToDo").addEventListener("submit" , (e) =>{
+  e.preventDefault();
+
+  const addItem = document.querySelector("#addItem").value;
+});
+
+
+
+
+
+
 document.querySelector("#items").addEventListener("click", (e) => {
   target = e.target;
   if(target.classList.contains("delete")){
