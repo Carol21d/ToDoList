@@ -1,5 +1,5 @@
 let selecRow = null;
-//show message
+
 function showMessage(message, className) {
   const div = document.createElement("div");
   div.className = `alert alert-${className}`;
@@ -16,7 +16,6 @@ function clear() {
   document.querySelector("#addItem").value = "";
 }
 
-// add item
 document.querySelector("#form-ToDo").addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -30,16 +29,18 @@ document.querySelector("#form-ToDo").addEventListener("submit", (e) => {
       const rowItems = document.createElement("tr");
 
       rowItems.innerHTML = `
+                 <td> #
                  <td>${addItem}</td>
                  <td>
                  <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
                  <a href="#" class="btn btn-info btn-sm edit">Edit</a>
+                
                 `;
       listItems.appendChild(rowItems);
       selecRow = null;
       // console.log(selecRow);
-      showMessage("Item added", "success");
-    } else{
+      showMessage("Item added to the List", "success");
+    } else {
       selecRow.children[0].textContent = addItem;
       selecRow = null;
       showMessage("Item Edited", "info");
@@ -49,20 +50,18 @@ document.querySelector("#form-ToDo").addEventListener("submit", (e) => {
   }
 });
 
-//edit item
-document.querySelector("#table-Items").addEventListener("click", (e) =>{
+document.querySelector("#table-Items").addEventListener("click", (e) => {
   target = e.target;
-  if(target.classList.contains("edit")){
-     selecRow = target.parentElement.parentElement;
-     document.querySelector("#addItem").value = selecRow.children[0].textContent;
+  if (target.classList.contains("edit")) {
+    selecRow = target.parentElement.parentElement;
+    document.querySelector("#addItem").value = selecRow.children[0].textContent;
   }
 });
- 
-//delete
+
 document.querySelector("#table-Items").addEventListener("click", (e) => {
   target = e.target;
   if (target.classList.contains("delete")) {
     target.parentElement.parentElement.remove();
-    showMessage("Item Deleted of the ToDo List", "danger");
+    showMessage("Item Deleted of the List", "danger");
   }
 });
