@@ -1,4 +1,4 @@
-const selecRow = null;
+let selecRow = null;
 //show message
 function showMessage(message, className) {
   const div = document.createElement("div");
@@ -12,25 +12,21 @@ function showMessage(message, className) {
   setTimeout(() => document.querySelector(".alert").remove(), 3000);
 }
 
+function clear() {
+  document.querySelector("#addItem").value = "";
+}
 
-//clear fields
-// function clear(){
-//   document.querySelector("#addItem").value = " ";
-// }
-
-
-document.querySelector("#addItem").value = " ";
 // add item
 document.querySelector("#form-ToDo").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const addItem = document.querySelector("#addItem").value;
 
-  if (addItem == " ") {
+  if (addItem == "") {
     showMessage("Empty Field, Please fill the Field", "danger");
   } else {
     if (selecRow == null) {
-      const listItems = document.querySelector("#items");
+      const listItems = document.querySelector("#table-Items");
       const rowItems = document.createElement("tr");
 
       rowItems.innerHTML = `
@@ -41,30 +37,29 @@ document.querySelector("#form-ToDo").addEventListener("submit", (e) => {
                 `;
       listItems.appendChild(rowItems);
       selecRow = null;
+      // console.log(selecRow);
       showMessage("Item added", "success");
-    } 
-    else{
+    } else{
       selecRow.children[0].textContent = addItem;
       selecRow = null;
       showMessage("Item Edited", "info");
     }
+
     clear();
   }
 });
 
-
 //edit item
-document.querySelector("#items").addEventListener("click", (e) =>{
+document.querySelector("#table-Items").addEventListener("click", (e) =>{
   target = e.target;
   if(target.classList.contains("edit")){
      selecRow = target.parentElement.parentElement;
      document.querySelector("#addItem").value = selecRow.children[0].textContent;
   }
 });
-
-
+ 
 //delete
-document.querySelector("#items").addEventListener("click", (e) => {
+document.querySelector("#table-Items").addEventListener("click", (e) => {
   target = e.target;
   if (target.classList.contains("delete")) {
     target.parentElement.parentElement.remove();
