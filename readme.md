@@ -9,7 +9,7 @@
 
 Proyecto final:
 
-
+<img width="1080" alt="appcrud" src="https://user-images.githubusercontent.com/117730103/210070245-654dadc2-99e8-4fa3-8f21-b8c7b3ca3af5.png">
 
 Lenguajes usados:
 - HTML
